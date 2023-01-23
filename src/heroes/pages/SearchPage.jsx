@@ -1,10 +1,17 @@
 import { Button, TextField } from "@mui/material"
-import { useState } from "react"
+import queryString from "query-string"
+import { useEffect, useState } from "react"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { MarvelList } from "../components/MarvelList"
 import { useForm } from "../hooks/useForm"
 
 const SearchPage = () => {
   const [search, setSearch] = useState('')
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const {q = ''} = queryString.parse(location.search);
 
   const { searchText, onInputChange, onResetForm } = useForm({
     searchText: ''
@@ -13,9 +20,14 @@ const SearchPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (searchText.trim().length <= 1) return;
-    console.log({ searchText });
-    setSearch(searchText);
+    navigate(`?q=${searchText}`)
+    setSearch(q);
   }
+
+  useEffect(() => {
+    setSearch(q);
+  }, [q])
+
 
   const url = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${search}&ts=1&apikey=3cc41762b36155c4e444cd8c49ec416c&hash=df15615b99506651175e8fc1c943b529`
 
