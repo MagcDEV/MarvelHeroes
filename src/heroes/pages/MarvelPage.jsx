@@ -12,7 +12,7 @@ export const MarvelPage = () => {
   }
   return (
     <div className="bg-gray-200 m-2">
-      <h1 className="text-4xl m-5">Marvel Page</h1>
+      <h1 className="text-4xl m-5 font-bold">Marvel Comics</h1>
       <MarvelList url={url} />
       <div className="flex justify-center mb-5">
         <Pagination count={77} color="primary" onChange={handleChange} />

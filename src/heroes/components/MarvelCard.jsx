@@ -11,7 +11,7 @@ export const MarvelCard = ({ character }) => {
   return (
     <Card sx={{ maxWidth: 445 }}>
       <CardMedia
-        sx={{ height: 350 , objectFit: "contain" }}
+        sx={{ height: 250 , objectFit: "contain" }}
         image={character.thumbnail.path + "." + character.thumbnail.extension}
         title="character thumbnail"
       />

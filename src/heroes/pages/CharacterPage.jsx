@@ -15,33 +15,32 @@ export const CharacterPage = () => {
   }
 
   return (
-    <div className="md:flex h-screen">
+    <div className="h-screen">
       {isLoading ?
         <CircularProgress />
         :
         <>
-          <div>
+          <div className="md:flex">
             <img
-              className="object-contain h-2/5 mx-auto mt-3 xl:h-4/5 xl:m-6 rounded"
+              className="object-contain md:m-5 md:w-96 md:h-96 rounded"
               src={data.data.results[0].thumbnail.path + "." + data.data.results[0].thumbnail.extension}
               alt="Character Image"
             />
-
-          </div>
-          <div className="xl:mt-5 m-5">
-            <h1 className="text-2xl font-bold">{data.data.results[0].name}</h1>
-            {data.data.results[0].description ?
-              <p className="mt-5">{data.data.results[0].description}</p>
-              : <p></p>
-            }
-            <h2 className="font-bold mt-5">Comics</h2>
-            <ul className="mt-3">
-              {data.data.results[0].comics.items.map((comic) => {
-                return <li>{comic.name}</li>
-              })}
-            </ul>
-            <div className="pl-5 pb-9 mt-5">
-              <Button onClick={onReturn} variant="contained">Return</Button>
+            <div className="mt-5 m-5">
+              <h1 className="text-2xl font-bold">{data.data.results[0].name}</h1>
+              {data.data.results[0].description ?
+                <p className="mt-5">{data.data.results[0].description}</p>
+                : <p></p>
+              }
+              <h2 className="font-bold mt-5">Comics</h2>
+              <ul className="mt-3">
+                {data.data.results[0].comics.items.map((comic) => {
+                  return <li>{comic.name}</li>
+                })}
+              </ul>
+              <div className="pl-5 pb-9 mt-5">
+                <Button onClick={onReturn} variant="contained">Return</Button>
+              </div>
             </div>
           </div>
         </>
