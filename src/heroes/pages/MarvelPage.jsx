@@ -1,11 +1,9 @@
 import { Pagination } from "@mui/material";
 import queryString from "query-string";
-import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { MarvelList } from "../components/MarvelList";
 
 export const MarvelPage = () => {
-  const [page, setPage] = useState(1)
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -28,15 +26,14 @@ export const MarvelPage = () => {
 
   const handleChange = (event, value) => {
     navigate(`?p=${value}`)
-    setPage(value);
   }
 
   return (
-    <div className="bg-gray-200 m-2">
+    <div className="bg-gray-200 m-10">
       <h1 className="text-4xl m-5 font-bold">Marvel Comics</h1>
       <MarvelList url={url} />
       <div className="flex justify-center mb-5">
-        <Pagination count={77} color="primary" onChange={handleChange} page={page} />
+        <Pagination count={77} color="primary" onChange={handleChange} />
       </div>
     </div>
   )

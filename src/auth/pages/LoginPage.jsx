@@ -1,10 +1,17 @@
 import { Button } from "@mui/material"
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../context";
 
 export const LoginPage = () => {
+  const { login } = useContext(AuthContext)
+
   const navigate = useNavigate();
+
   const onLogin = () => {
-    navigate('/marvel', {
+    const lastPath = localStorage.getItem('lastPath') || '/';
+    login('Manuel Guevara');
+    navigate(lastPath, {
       replace: true
     });
   }
@@ -20,4 +27,3 @@ export const LoginPage = () => {
     </>
   )
 }
-

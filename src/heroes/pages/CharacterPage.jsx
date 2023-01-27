@@ -35,7 +35,7 @@ export const CharacterPage = () => {
               <h2 className="font-bold mt-5">Comics</h2>
               <ul className="mt-3">
                 {data.data.results[0].comics.items.map((comic) => {
-                  return <li>{comic.name}</li>
+                  return <li key={comic.name}>{comic.name}</li>
                 })}
               </ul>
               <div className="pl-5 pb-9 mt-5">
