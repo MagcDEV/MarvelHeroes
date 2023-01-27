@@ -8,7 +8,7 @@ export const CharacterPage = () => {
 
   const navigate = useNavigate();
 
-  const { data, isLoading, hasError } = useFetch(`http://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=3cc41762b36155c4e444cd8c49ec416c&hash=df15615b99506651175e8fc1c943b529`)
+  const { data, isLoading, hasError } = useFetch(`https://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=3cc41762b36155c4e444cd8c49ec416c&hash=df15615b99506651175e8fc1c943b529`)
 
   const onReturn = () => {
     navigate(-1);
